@@ -1,0 +1,14 @@
+:root {
+    --Homepage-Items: 14px;
+    --Detail-Page: 16px;
+    --Dark-Blue-DarkModeElements: hsl(209, 23%, 22%);
+    --Very-DarkBlue-DarkModeBackground: hsl(207, 26%, 17%);
+    --VeryDarkBlue-LightModeText: hsl(200, 15%, 8%);
+    --DarkGray-LightModeInput: hsl(0, 0%, 52%);
+    --VeryLightGray-LightModeBackground: hsl(0, 0%, 98%);
+    --WhiteDarkMode-TextAndLightModeElements: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
