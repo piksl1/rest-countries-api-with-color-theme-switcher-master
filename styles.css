@@ -12,3 +12,13 @@
 body {
     font-family: 'Nunito Sans', sans-serif;
 }
+
+header .heading {
+    padding: 15px
+}
+
+.btn:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: transparent !important;
+}
