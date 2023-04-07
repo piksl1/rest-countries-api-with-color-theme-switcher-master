@@ -7,18 +7,154 @@
     --DarkGray-LightModeInput: hsl(0, 0%, 52%);
     --VeryLightGray-LightModeBackground: hsl(0, 0%, 98%);
     --WhiteDarkMode-TextAndLightModeElements: hsl(0, 0%, 100%);
+    --boxShadow-darkMode: 0px 0px 4px hsl(207, 26%, 17%, 0.3)
 }
 
 body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
-header .heading {
-    padding: 15px
+body[data-bs-theme="dark"]:not(.header) {
+    background-color: var(--Very-DarkBlue-DarkModeBackground)
 }
 
-.btn:hover {
-    background-color: transparent !important;
-    color: inherit !important;
-    border-color: transparent !important;
+/*Start Header */
+header.heading {
+    padding: 15px 25px;
 }
+
+[data-bs-theme="dark"] header.heading {
+    box-shadow: 1px 3px 6px hsl(207, 26%, 17%);
+    background-color: var(--Dark-Blue-DarkModeElements);
+}
+
+header.heading h4 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--VeryDarkBlue-LightModeText);
+}
+
+[data-bs-theme="dark"] header.heading h4 {
+    color: var(--WhiteDarkMode-TextAndLightModeElements)
+}
+
+.h4,
+h4 {
+    font-size: 1rem;
+}
+
+@media (min-width: 1200px) {
+
+    h4,
+    h4 {
+        font-size: 1.3rem;
+
+    }
+}
+
+.darkMode .btn {
+    border: none;
+    font-weight: 600;
+    color: var(--VeryDarkBlue-LightModeText);
+}
+
+[data-bs-theme="dark"] .darkMode .btn {
+    color: var(--WhiteDarkMode-TextAndLightModeElements)
+}
+
+.darkMode .btn:hover,
+[data-bs-theme="dark"] .darkMode .btn:hover {
+    background-color: none !important;
+    color: none !important;
+    border-color: none !important;
+}
+
+/*End Header */
+/* Start Search-filter */
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.search-filter .input-group {
+    margin: 25px;
+    padding: 10px;
+}
+
+.search-filter .input-group .form-control {
+    font-size: var(--Homepage-Items)
+}
+
+[data-bs-theme="dark"] .search-filter .input-group .form-control::placeholder {
+    color: var(--WhiteDarkMode-TextAndLightModeElements);
+}
+
+.search-filter .input-group .input-group-text {
+    color: var(--DarkGray-LightModeInput)
+}
+
+[data-bs-theme="dark"] .search-filter .input-group .input-group-text {
+    color: var(--WhiteDarkMode-TextAndLightModeElements)
+}
+
+[data-bs-theme="dark"] .search-filter .input-group {
+    background-color: var(--Dark-Blue-DarkModeElements);
+}
+
+[data-bs-theme="dark"] .search-filter .input-group {
+    box-shadow: var(--boxShadow-darkMode)
+}
+
+[data-bs-theme="dark"] .search-filter .input-group .form-control {
+    background-color: var(--Dark-Blue-DarkModeElements);
+}
+
+.row .col-md-6 .dropdown {
+    text-align: end;
+    margin: 25px;
+}
+
+@media (max-width: 768px) {
+    .row .col-md-6 .dropdown {
+        text-align: start;
+        margin: 0 25px;
+    }
+}
+
+.dropdown-toggle {
+    padding: 17px;
+    background-color: var(--VeryLightGray-LightModeBackground);
+    color: var(--VeryDarkBlue-LightModeText);
+    font-size: var(--Homepage-Items);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .dropdown-toggle {
+    background-color: var(--Dark-Blue-DarkModeElements);
+    color: var(--WhiteDarkMode-TextAndLightModeElements);
+
+}
+
+[data-bs-theme="dark"] ul.dropdown-menu {
+    background-color: var(--Dark-Blue-DarkModeElements);
+}
+
+ul li a.dropdown-item {
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] ul li a.dropdown-item {
+    color: var(--WhiteDarkMode-TextAndLightModeElements);
+}
+
+.dropdown-toggle::after {
+    margin-left: 30px;
+}
+
+/* End Search-filter */
