@@ -158,3 +158,69 @@ ul li a.dropdown-item {
 }
 
 /* End Search-filter */
+
+/* Start Countries infos */
+.container .row {
+    margin-top: 30px;
+    gap: 2.5rem;
+}
+
+.container .row .item.col {
+    padding: 0 25px 25px;
+
+}
+
+.container .row .col-12 {
+    display: block;
+
+}
+
+.container .row .item {
+    border: 1px solid transparent;
+    border-radius: 6px;
+    width: 100%;
+}
+
+[data-bs-theme="dark"] .container .row .item {
+    background-color: var(--Dark-Blue-DarkModeElements);
+}
+
+.container .row .item .col-12:nth-child(2) {
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 10px 10px 0;
+}
+
+.container .row .item img {
+    max-width: 121%;
+    margin-bottom: calc(25px + 2 * 10px);
+    margin-left: -25px;
+}
+
+
+
+@media screen and (min-width: 576px) {
+    .container .row .item {
+        width: calc((100% - 2.5rem * 3) / 4);
+    }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 992px) {
+    .container .row .item {
+        width: calc((100% - 2.5rem * 2) / 3);
+    }
+
+    .container .row .item img {
+        max-width: 133%;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .container .row .item img {
+        max-width: 117%;
+    }
+}
+
+/* End Countries infos */
