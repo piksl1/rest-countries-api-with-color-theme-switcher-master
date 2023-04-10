@@ -34,12 +34,22 @@
         <input
           type="button"
           class="btn btn-light bg-transparent"
-          onclick="darkMode()"
           value="Dark Mode"
         />
       </div>
     </header>
-
+    <div class="container">
+      <img id="country-flag" src="" />
+      <div id="country-name"></div>
+      <div id="country-native-name"></div>
+      <div id="country-population"></div>
+      <div id="country-region"></div>
+      <div id="country-sub-region"></div>
+      <div id="country-capital"></div>
+      <div id="country-domain"></div>
+      <div id="country-currency"></div>
+      <div id="country-language"></div>
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
       integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
@@ -52,6 +62,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="main.js"></script>
+    <script type="module" src="infos.js"></script>
   </body>
 </html>

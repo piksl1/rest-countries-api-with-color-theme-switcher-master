@@ -66,6 +66,11 @@ fetch("https://restcountries.com/v3.1/all")
       div.appendChild(spanRegion);
       div.appendChild(spanCapital);
 
+      div.addEventListener("click", () => {
+        // Navigate to more-info.html page and pass the country name as a query parameter
+        window.location.href = `more-info.html?name=${name}`;
+      });
+
       row.appendChild(div);
     });
   })

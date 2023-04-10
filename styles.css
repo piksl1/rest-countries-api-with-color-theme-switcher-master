@@ -167,7 +167,7 @@ ul li a.dropdown-item {
 
 .container .row .item.col {
     padding: 0 25px 25px;
-
+    cursor: pointer;
 }
 
 .container .row .col-12 {
