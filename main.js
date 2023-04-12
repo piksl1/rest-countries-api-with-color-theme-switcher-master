@@ -1,9 +1,18 @@
 // page mode
+// Get the initial mode from local storage, or default to "light" if not set
+
+let initialMode = localStorage.getItem("mode") || "light";
+document.body.dataset.bsTheme = initialMode;
+
+let button = document.querySelector(".btn-light");
+let element = document.body;
+let font = document.querySelectorAll(".fa-moon")[0];
+
+// Toggle the mode and store the new value in local storage
 function darkMode() {
-  let element = document.body;
-  let font = document.querySelectorAll(".fa-moon")[0];
-  element.dataset.bsTheme =
-    element.dataset.bsTheme == "light" ? "dark" : "light";
+  const newMode = element.dataset.bsTheme === "light" ? "dark" : "light";
+  element.dataset.bsTheme = newMode;
+
   if (element.dataset.bsTheme == "dark") {
     font.classList.add("fa-solid");
     font.classList.remove("fa-regular");
@@ -11,7 +20,10 @@ function darkMode() {
     font.classList.remove("fa-solid");
     font.classList.add("fa-regular");
   }
+  // Save the user's preferred mode in localStorage
+  localStorage.setItem("mode", newMode);
 }
+button.addEventListener("click", darkMode);
 
 // Rest Api
 fetch("https://restcountries.com/v3.1/all")

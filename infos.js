@@ -1,11 +1,18 @@
 // page mode
-let button = document.querySelector(".btn-light");
-function darkMode() {
-  let element = document.body;
-  let font = document.querySelectorAll(".fa-moon")[0];
+// Get the initial mode from local storage, or default to "light" if not set
 
-  element.dataset.bsTheme =
-    element.dataset.bsTheme == "light" ? "dark" : "light";
+let initialMode = localStorage.getItem("mode") || "light";
+document.body.dataset.bsTheme = initialMode;
+
+let button = document.querySelector(".btn-light");
+let element = document.body;
+let font = document.querySelectorAll(".fa-moon")[0];
+
+// Toggle the mode and store the new value in local storage
+function darkMode() {
+  const newMode = element.dataset.bsTheme === "light" ? "dark" : "light";
+  element.dataset.bsTheme = newMode;
+
   if (element.dataset.bsTheme == "dark") {
     font.classList.add("fa-solid");
     font.classList.remove("fa-regular");
@@ -13,6 +20,8 @@ function darkMode() {
     font.classList.remove("fa-solid");
     font.classList.add("fa-regular");
   }
+  // Save the user's preferred mode in localStorage
+  localStorage.setItem("mode", newMode);
 }
 button.addEventListener("click", darkMode);
 
@@ -38,6 +47,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}`)
     const countryDomain = document.querySelector("#country-domain");
     const countryCurrency = document.querySelector("#country-currency");
     const countryLanguage = document.querySelector("#country-language");
+    const countryBorders = document.querySelector("#country-borders");
     // Update the elements with the country information
 
     countryFlag.src = country.flags.svg;
@@ -49,9 +59,33 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}`)
     countryRegion.textContent = `Region: ${country.region}`;
     countrySubRegion.textContent = `Sub Region: ${country.subregion}`;
     countryCapital.textContent = `Capital: ${country.capital?.[0] || "N/A"}`;
+
+    //show the full names of the border countries
+    if (country.borders && country.borders.length > 0) {
+      const borderPromises = country.borders.map((border) => {
+        return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+          .then((response) => response.json())
+          .then((data) => data[0].name.official);
+      });
+      Promise.all(borderPromises).then((borderCountries) => {
+        countryBorders.textContent = `Border Countries: ${borderCountries.join(
+          " "
+        )}`;
+      });
+    } else {
+      countryBorders.textContent = "No countries on border .";
+    }
     countryDomain.textContent = `Top Level Domain: ${country.cca2}`;
     countryCurrency.textContent = `Currencies ${
       country.currencies[Object.keys(country.currencies)[0]].name
     }`;
+    countryLanguage.textContent = `Languages: ${
+      country.languages[Object.keys(country.languages)[0]]
+    }`;
   })
   .catch((error) => console.log(error));
+
+// back button
+document
+  .querySelector(".back-btn")
+  .addEventListener("click", () => (location.href = "index.html"));
