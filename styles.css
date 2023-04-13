@@ -163,6 +163,7 @@ ul li a.dropdown-item {
 .container .row {
     margin-top: 30px;
     gap: 2.5rem;
+
 }
 
 .container .row .item.col {
@@ -240,9 +241,73 @@ ul li a.dropdown-item {
     padding-right: 35px;
 }
 
+.container .row.sec-page {
+    margin-top: 30px;
+    gap: 2.5rem;
+    line-height: 2rem;
+}
+
+.container #country-name {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.container #country-native-name::before {
+    content: "Native Name: ";
+    font-weight: 600;
+}
+
+.container #country-currency::before {
+    content: "Currencies ";
+    font-weight: 600;
+
+}
+
+.container #country-language::before {
+    content: "Languages: ";
+    font-weight: 600;
+}
+
+.container #country-population::before {
+    content: "Population: ";
+    font-weight: 600;
+}
+
+.container #country-region::before {
+    content: "Region: ";
+    font-weight: 600;
+}
+
+.container #country-sub-region::before {
+    content: "Sub Region: ";
+    font-weight: 600;
+}
+
+.container #country-borders {
+    word-spacing: 15px;
+}
+
+.container #country-borders::before {
+    content: "Border Countries: ";
+    font-weight: 600;
+    word-spacing: 0;
+    margin-right: 10px;
+}
+
+
+.container #country-capital::before {
+    content: "Capital: ";
+    font-weight: 600;
+}
+
+.container #country-domain::before {
+    content: "Top Level Domain: ";
+    font-weight: 600;
+}
+
 .container #country-flag {
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
 }
 
 /* End More Infos */

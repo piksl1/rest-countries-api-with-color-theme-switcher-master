@@ -52,34 +52,32 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}`)
 
     countryFlag.src = country.flags.svg;
     countryName.textContent = country.name.official;
-    countryNativeName.textContent = `Native Name: ${
+    countryNativeName.textContent = `${
       country.name.nativeName[Object.keys(country.name.nativeName)[0]].common
     }`;
-    countryPopulation.textContent = `Population: ${country.population.toLocaleString()}`;
-    countryRegion.textContent = `Region: ${country.region}`;
-    countrySubRegion.textContent = `Sub Region: ${country.subregion}`;
-    countryCapital.textContent = `Capital: ${country.capital?.[0] || "N/A"}`;
+    countryPopulation.textContent = `${country.population.toLocaleString()}`;
+    countryRegion.textContent = `${country.region}`;
+    countrySubRegion.textContent = `${country.subregion}`;
+    countryCapital.textContent = `${country.capital?.[0] || "N/A"}`;
 
     //show the full names of the border countries
     if (country.borders && country.borders.length > 0) {
       const borderPromises = country.borders.map((border) => {
         return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
           .then((response) => response.json())
-          .then((data) => data[0].name.official);
+          .then((data) => data[0].name.common);
       });
       Promise.all(borderPromises).then((borderCountries) => {
-        countryBorders.textContent = `Border Countries: ${borderCountries.join(
-          " "
-        )}`;
+        countryBorders.textContent = `${borderCountries.join(" ")}`;
       });
     } else {
       countryBorders.textContent = "No countries on border .";
     }
-    countryDomain.textContent = `Top Level Domain: ${country.cca2}`;
-    countryCurrency.textContent = `Currencies ${
+    countryDomain.textContent = `${country.cca2}`;
+    countryCurrency.textContent = `${
       country.currencies[Object.keys(country.currencies)[0]].name
     }`;
-    countryLanguage.textContent = `Languages: ${
+    countryLanguage.textContent = `${
       country.languages[Object.keys(country.languages)[0]]
     }`;
   })
