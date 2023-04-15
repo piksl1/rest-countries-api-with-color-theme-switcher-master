@@ -71,6 +71,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}`)
         countryBorders.textContent = `${borderCountries.join(" ")}`;
       });
     } else {
+      countryBorders.style.wordSpacing = "2px";
       countryBorders.textContent = "No countries on border .";
     }
     countryDomain.textContent = `${country.cca2}`;

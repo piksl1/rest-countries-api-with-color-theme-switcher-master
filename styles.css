@@ -43,6 +43,15 @@ h4 {
     font-size: 1rem;
 }
 
+a {
+    text-decoration: none;
+    color: var(--VeryDarkBlue-LightModeText)
+}
+
+[data-bs-theme="dark"] a {
+    color: var(--WhiteDarkMode-TextAndLightModeElements);
+}
+
 @media (min-width: 1200px) {
 
     h4,
@@ -228,6 +237,13 @@ ul li a.dropdown-item {
 
 
 /* Start More Infos */
+@media screen and (max-width: 991px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .container .back-btn {
     width: fit-content;
     margin-top: 70px;
@@ -241,10 +257,38 @@ ul li a.dropdown-item {
     padding-right: 35px;
 }
 
+@media (max-width:991px) {
+    .row .col.image {
+        min-width: 100%;
+    }
+}
+
 .container .row.sec-page {
     margin-top: 30px;
     gap: 2.5rem;
     line-height: 2rem;
+}
+
+@media (max-width:991px) {
+    .container .sec-page {
+        display: block;
+        width: 100%;
+    }
+
+    .container .sec-page .col-6 {
+        margin: 20px 0;
+        padding: 10px 0;
+    }
+
+    .container .sec-page .col {
+        margin: 20px 0;
+        padding: 10px 0;
+    }
+
+    .container .sec-page #country-borders {
+        margin: 20px 0;
+        padding: 10px 0;
+    }
 }
 
 .container #country-name {
